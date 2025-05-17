@@ -1,0 +1,33 @@
+# Enforce LF line endings for all text files
+* text=auto eol=lf
+
+# Set specific file types as text (ensure consistent line endings)
+*.js     text
+*.ts     text
+*.tsx    text
+*.jsx    text
+*.json   text
+*.css    text
+*.scss   text
+*.md     text
+*.yml    text
+*.yaml   text
+*.html   text
+*.sh     text
+*.env    text
+
+# Treat lockfiles as binary (prevent merge conflicts)
+package-lock.json binary
+bun.lockb binary
+pnpm-lock.yaml binary
+yarn.lock binary
+
+# Don't auto normalize images and binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
