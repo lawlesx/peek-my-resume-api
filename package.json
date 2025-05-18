@@ -6,15 +6,21 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
+    "elysia": "latest",
+    "pg": "^8.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
+    "@types/pg": "^8.15.2",
     "bun-types": "latest",
+    "drizzle-kit": "^0.31.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "globals": "^16.1.0",
     "prettier": "3.5.3",
+    "tsx": "^4.19.4",
     "typescript-eslint": "^8.32.1"
   },
   "module": "src/index.js"
