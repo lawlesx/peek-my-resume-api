@@ -6,6 +6,7 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@auth/core": "^0.39.1",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
     "elysia": "latest",

@@ -1,5 +1,6 @@
 import { Elysia } from 'elysia'
 import { existsSync, mkdirSync } from 'fs'
+import { getUserFromRequest } from './utils/auth'
 
 const uploadsDir = './.uploads'
 
@@ -10,6 +11,9 @@ if (!existsSync(uploadsDir)) {
 const app = new Elysia()
   .get('/', () => 'Hello Elysia!')
   .post('/upload', async ({ request }) => {
+    const user = await getUserFromRequest(request)
+    if (!user) return new Response('Unauthorized', { status: 401 })
+
     const form = await request.formData()
     const file = form.get('resume') as File
 

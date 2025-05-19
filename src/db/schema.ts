@@ -14,7 +14,23 @@ export const resumes = pgTable('resumes', {
     .default(sql`CURRENT_TIMESTAMP`),
 
   reviewLink: text('review_link'),
-  userId: uuid('user_id').notNull(),
+
   jobRole: text('job_role').notNull(),
   version: integer('version').notNull().default(1),
+
+  // Relation
+  userId: uuid('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+})
+
+export const users = pgTable('users', {
+  id: uuid('id').defaultRandom().primaryKey(),
+
+  name: text('name'),
+  email: text('email').notNull().unique(),
+
+  createdAt: timestamp('created_at')
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
 })
